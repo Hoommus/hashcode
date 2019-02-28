@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Slide extends TagsContainer {
     private List<Photo> photos;
@@ -10,11 +11,15 @@ public class Slide extends TagsContainer {
         photos.add(vertical1);
         photos.add(vertical2);
         photosOrientations = Orientation.VERTICAL;
+        this.tags.addAll(vertical1.getTags());
+        this.tags.addAll(vertical2.getTags());
+        tags = tags.stream().distinct().collect(Collectors.toList());
     }
 
     public Slide(Photo horizontal) {
         photos.add(horizontal);
         photosOrientations = Orientation.HORIZONTAl;
+        tags.addAll(horizontal.getTags());
     }
 
     public List<Photo> getPhotos() {
