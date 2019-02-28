@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Parser {
@@ -11,16 +12,21 @@ public class Parser {
 
     public List<Photo> getPhotoList(String filename) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filename));
+        long entries = Long.parseLong(reader.readLine());
 
+        long i = 0;
         String line;
         while ((line = reader.readLine()) != null) {
             Photo photo = new Photo();
-            String[] tokens = line.split(" ");
-            if (tokens[0].equals("H"))
+            List<String> tokens = Arrays.asList(line.split(" "));
+            if (tokens.get(0).equals("H"))
                 photo.setOrientation(Orientation.HORIZONTAl);
             else
                 photo.setOrientation(Orientation.VERTICAL);
-
+            photo.setTags(tokens.subList(2, tokens.size()));
+            photo.setIndex(i++);
+            photoList.add(photo);
         }
+        return photoList;
     }
 }

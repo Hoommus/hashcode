@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Photo {
+    private long index;
     private Orientation orientation;
     private List<String> tags;
 
@@ -28,5 +29,22 @@ public class Photo {
 
     public void setTags(List<String> tags) {
         this.tags = tags;
+    }
+
+    public long getIndex() {
+        return index;
+    }
+
+    public void setIndex(long index) {
+        this.index = index;
+    }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "index=" + index +
+                ", orientation=" + orientation +
+                ", tags=" + tags +
+                '}';
     }
 }
