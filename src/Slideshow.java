@@ -21,7 +21,7 @@ public class Slideshow {
             List<Photo> photos = s.getPhotos();
             writer.write("" + photos.get(0).getIndex());
             if (photos.get(1) != null)
-                writer.write("" + photos.get(1).getIndex());
+                writer.write(" " + photos.get(1).getIndex());
             writer.newLine();
         }
     }
