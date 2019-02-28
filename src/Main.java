@@ -6,7 +6,8 @@ public class Main {
         Parser parser = new Parser();
 
         List<Photo> photoList = null;
-        photoList = parser.getPhotoList("a_example.txt");
+        //photoList = parser.getPhotoList("a_example.txt");
+        photoList = parser.getPhotoList("b_lovely_landscapes.txt");
 
         for (Photo photo : photoList) {
             System.out.println(photo);
