@@ -3,7 +3,7 @@
  */
 public class Linker {
 
-    public Linker() {
+    public Linker(TagsContainer container) {
 
     }
 }
