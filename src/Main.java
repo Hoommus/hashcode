@@ -12,5 +12,9 @@ public class Main {
         for (Photo photo : photoList) {
             System.out.println(photo);
         }
+
+        for (Photo photo : photoList) {
+
+        }
     }
 }

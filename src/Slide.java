@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Slide {
+public class Slide extends TagsContainer {
     private List<Photo> photos;
     private Orientation photosOrientations;
 

@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Photo {
+public class Photo extends TagsContainer {
     private long index;
     private Orientation orientation;
-    private List<String> tags;
 
     public Photo() {
         this.tags = new ArrayList<>();
