@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Photo extends TagsContainer {
     private long index;
     private Orientation orientation;
+    private boolean isUsed = false;
 
     public Photo() {
         this.tags = new ArrayList<>();
@@ -39,11 +41,33 @@ public class Photo extends TagsContainer {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Photo photo = (Photo) o;
+        return index == photo.index &&
+                orientation == photo.orientation;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(index, orientation);
+    }
+
+    @Override
     public String toString() {
         return "Photo{" +
                 "index=" + index +
                 ", orientation=" + orientation +
                 ", tags=" + tags +
                 '}';
+    }
+
+    public boolean isUsed() {
+        return isUsed;
+    }
+
+    public void setUsed(boolean used) {
+        isUsed = used;
     }
 }

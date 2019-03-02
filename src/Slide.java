@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Slide extends TagsContainer {
-    private List<Photo> photos;
+    private List<Photo> photos = new ArrayList<>();
     private Orientation photosOrientations;
 
     public Slide(Photo vertical1, Photo vertical2) {
@@ -18,7 +19,7 @@ public class Slide extends TagsContainer {
 
     public Slide(Photo horizontal) {
         photos.add(horizontal);
-        photosOrientations = Orientation.HORIZONTAl;
+        photosOrientations = Orientation.HORIZONTAL;
         tags.addAll(horizontal.getTags());
     }
 

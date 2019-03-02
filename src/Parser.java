@@ -20,7 +20,7 @@ public class Parser {
             Photo photo = new Photo();
             List<String> tokens = Arrays.asList(line.split(" "));
             if (tokens.get(0).equals("H"))
-                photo.setOrientation(Orientation.HORIZONTAl);
+                photo.setOrientation(Orientation.HORIZONTAL);
             else
                 photo.setOrientation(Orientation.VERTICAL);
             photo.setTags(tokens.subList(2, tokens.size()));

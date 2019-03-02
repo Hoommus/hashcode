@@ -3,10 +3,11 @@ import com.sun.istack.internal.Nullable;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Slideshow {
-    private List<Slide> slides;
+    private List<Slide> slides = new ArrayList<>();
 
     public Slideshow() {}
 
@@ -15,15 +16,17 @@ public class Slideshow {
             filename = "output.txt";
         BufferedWriter writer = new BufferedWriter(new FileWriter(filename));
 
-        writer.write(slides.size());
+        writer.write("" + slides.size());
         writer.newLine();
-        for (Slide s: slides) {
+        for (Slide s : slides) {
             List<Photo> photos = s.getPhotos();
             writer.write("" + photos.get(0).getIndex());
-            if (photos.get(1) != null)
+            if (photos.size() == 2 && photos.get(1) != null)
                 writer.write(" " + photos.get(1).getIndex());
             writer.newLine();
         }
+        writer.flush();
+        writer.close();
     }
 
     public Slideshow(List<Slide> slides) {
@@ -36,6 +39,10 @@ public class Slideshow {
 
     public List<Slide> getSlides() {
         return slides;
+    }
+
+    public Slide getLast() {
+        return slides.get(slides.size() - 1);
     }
 
     public void setSlides(List<Slide> slides) {

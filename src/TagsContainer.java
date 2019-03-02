@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -5,6 +6,13 @@ import java.util.List;
  */
 public class TagsContainer {
 
-    protected List<String> tags;
+    protected List<String> tags = new ArrayList<>();
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 }
